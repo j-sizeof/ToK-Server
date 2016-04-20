@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToK.Common", "ToK.Common\ToK.Common.csproj", "{00AD21DD-5E61-4918-9E25-96DBEF82A059}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToK.DataServer", "ToK.DataServer\ToK.DataServer.csproj", "{9A1DF6CB-AEE8-4E52-A3F7-BE3FB3B5FA76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToK.GameServer", "ToK.GameServer\ToK.GameServer.csproj", "{0A728E58-1780-4D27-8C8C-4DC21BD5ED81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00AD21DD-5E61-4918-9E25-96DBEF82A059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00AD21DD-5E61-4918-9E25-96DBEF82A059}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00AD21DD-5E61-4918-9E25-96DBEF82A059}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00AD21DD-5E61-4918-9E25-96DBEF82A059}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A1DF6CB-AEE8-4E52-A3F7-BE3FB3B5FA76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A1DF6CB-AEE8-4E52-A3F7-BE3FB3B5FA76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A1DF6CB-AEE8-4E52-A3F7-BE3FB3B5FA76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A1DF6CB-AEE8-4E52-A3F7-BE3FB3B5FA76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A728E58-1780-4D27-8C8C-4DC21BD5ED81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A728E58-1780-4D27-8C8C-4DC21BD5ED81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A728E58-1780-4D27-8C8C-4DC21BD5ED81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A728E58-1780-4D27-8C8C-4DC21BD5ED81}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
