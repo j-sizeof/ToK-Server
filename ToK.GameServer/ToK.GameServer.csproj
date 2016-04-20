@@ -52,7 +52,6 @@
     <Compile Include="Game\CGameController.ProcessGamePackets.cs" />
     <Compile Include="Game\CRecvPacket.cs" />
     <Compile Include="Game\EPlayerState.cs" />
-    <Compile Include="Utility\CLog.cs" />
     <Compile Include="Game\CPlayer.cs" />
     <Compile Include="GUI\MainForm.cs">
       <SubType>Form</SubType>

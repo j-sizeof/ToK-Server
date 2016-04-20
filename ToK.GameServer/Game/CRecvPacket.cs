@@ -1,4 +1,7 @@
-﻿using ToK.Common.Network;
+﻿using System;
+using System.Runtime.InteropServices;
+using ToK.Common;
+using ToK.Common.Network;
 using ToK.Common.Network.PacketStructures;
 
 namespace ToK.GameServer.Game
@@ -25,17 +28,13 @@ namespace ToK.GameServer.Game
         }
 
         /// <summary>
-        /// Gets a copy of the actual packet header.
+        /// Get the next ushort from the buffer starting from the buffer's offset.
         /// </summary>
-        public unsafe BPacketHeader Header
+        /// <param name="adtOffset">Aditional offset.</param>
+        /// <param name="optOffset">Optional offset.</param>
+        public ushort GetUShort(int adtOffset = 0, int optOffset = -1)
         {
-            get
-            {
-                fixed(byte* pinnedBuffer = Buffer)
-                {
-                    return *(BPacketHeader*)&pinnedBuffer[Offset];
-                }
-            }
+            return BitConverter.ToUInt16(this.Buffer, (optOffset + adtOffset >= 0 && optOffset + adtOffset < this.Buffer.Length) ? optOffset + adtOffset : this.Offset + adtOffset);
         }
     }
 }
