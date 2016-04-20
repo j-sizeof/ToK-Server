@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using ToK.Common.Game;
 using ToK.Common.Network;
 using ToK.Common.Network.PacketStructures;
+using ToK.Common.Utility;
 
 namespace ToK.GameServer.Game
 {
@@ -11,7 +12,7 @@ namespace ToK.GameServer.Game
     {
         public bool TryInsertPlayer(CPlayer player)
         {
-            short validIndex = 0;
+            short validIndex = 1;
 
             for (; validIndex < HGameBasics.MAX_PLAYER; validIndex++)
             {
@@ -37,6 +38,8 @@ namespace ToK.GameServer.Game
                 // TODO: proceed removind the player of all the game state: mob grid, spawned mobs, etc.
 
                 PlayerState[player.Index] = EPlayerState.CLOSED;
+
+                CLog.Write($"The player {player.Index} was disconnected from the server.", ELogType.GAME_EVENT);
             }
         }
 
@@ -46,30 +49,23 @@ namespace ToK.GameServer.Game
 
             try
             {
-                if (!HPacketHelper.Decrypt(player.RecvPacket.Buffer, player.RecvPacket.Offset))
+                // Switch for the packet opcode.
+                switch (player.RecvPacket.Header.Opcode)
                 {
-                    err = EPacketError.CHECKSUM_FAIL;
-                }
-                else
-                {
-                    // Switch for the packet opcode.
-                    switch (player.RecvPacket.Header.Opcode)
-                    {
-                        case BAccountLoginPacket.Opcode:
-                            err = ProcessAccountLogin(player);
-                            break;
+                    case BAccountLoginPacket.Opcode:
+                        err = ProcessAccountLogin(player);
+                        break;
 
-                        case BPingPacket.Opcode:
+                    case BPingPacket.Opcode:
 
-                            break;
+                        break;
 
-                        default:
-                            err = EPacketError.PACKET_NOT_HANDLED;
-                            break;
-                    }
+                    default:
+                        err = EPacketError.PACKET_NOT_HANDLED;
+                        break;
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 err = EPacketError.UNKNOWN;
             }

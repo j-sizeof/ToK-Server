@@ -6,6 +6,7 @@ using ToK.Common;
 using ToK.Common.Game;
 using ToK.Common.Network;
 using ToK.Common.Network.PacketStructures;
+using ToK.Common.Utility;
 
 namespace ToK.GameServer.Game
 {
@@ -31,12 +32,10 @@ namespace ToK.GameServer.Game
 
         public void SendPacket(byte[] packet)
         {
-            File.WriteAllBytes("sent_dec.bin", packet);
+            CLog.Write(String.Format("Packet 0x{0:X} were sent to the player (Index: {1}).",
+                BitConverter.ToUInt16(packet, 4), Index), ELogType.NETWORK);
 
             HPacketHelper.Encrypt(packet);
-
-            Utility.CLog.WriteLine("packet sent.");
-            File.WriteAllBytes("sent_enc.bin", packet);
 
             Stream.Write(packet, 0, BitConverter.ToUInt16(packet, 0));
         }
