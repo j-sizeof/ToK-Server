@@ -10,7 +10,7 @@ namespace ToK.Common.Persistency
         public MAccountInfo Info;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = GameBasics.MAXL_ACC_MOB)]
-        public BMobCore[] MobCore;
+        public MMobCore[] MobCore;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = GameBasics.MAXL_CARGO_ITEM)]
         public MItem[] Cargo;

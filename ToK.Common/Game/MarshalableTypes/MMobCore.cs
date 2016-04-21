@@ -38,7 +38,7 @@ namespace ToK.Common.Game.MarshalableTypes
     /// The basic mob structure. Contains the first structure create to represent the mob in the game.
     /// </summary>
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi, Pack = ProjectBasics.DEFAULT_PACK)]
-    public struct BMobCore
+    public struct MMobCore
     {
         public BMobName Name;
         public sbyte Clan; // The clan the mob belongs to.

@@ -48,7 +48,7 @@
     <Compile Include="Game\MarshalableTypes\MAffect.cs" />
     <Compile Include="Game\MarshalableTypes\MGeometry.cs" />
     <Compile Include="Game\MarshalableTypes\MItem.cs" />
-    <Compile Include="Game\MarshalableTypes\BMobCore.cs" />
+    <Compile Include="Game\MarshalableTypes\MMobCore.cs" />
     <Compile Include="Game\MarshalableTypes\MMobExtra.cs" />
     <Compile Include="Game\MarshalableTypes\MScore.cs" />
     <Compile Include="Utility\MyMarshal.cs" />
