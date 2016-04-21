@@ -21,10 +21,10 @@ namespace ToK.Common.Game.MarshalableTypes
         public sbyte Soul;
         public short MortalFace;
 
-        public BQuestInfo QuestInfo;
+        public MQuestInfo QuestInfo;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
-        public BSavedCelestial[] SavedCelestial; // Represents the celestial and the sub-celestial.
+        public MSavedCelestial[] SavedCelestial; // Represents the celestial and the sub-celestial.
 
         public long LastNT;
         public int NT;
@@ -33,18 +33,18 @@ namespace ToK.Common.Game.MarshalableTypes
         public long DivineEnd;
         public uint Hold;
 
-        public BDayLog DayLog;
+        public MDayLog DayLog;
 
-        public BDonateInfo DonateInfo;
+        public MDonateInfo DonateInfo;
 
         public unsafe fixed int Empty[9];
 
         #region Sub Structures
         [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
-        public struct BQuestInfo
+        public struct MQuestInfo
         {
             [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
-            public struct BQuestInfo_Mortal
+            public struct MQuestInfo_Mortal
             {
                 public sbyte Newbie; // 00_01_02_03_04  quest com quatro etapas
                 public EMysticLandQuest MysticLand;
@@ -54,7 +54,7 @@ namespace ToK.Common.Game.MarshalableTypes
             }
 
             [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
-            public struct BQuestInfo_Arch
+            public struct MQuestInfo_Arch
             {
                 public sbyte MortalSlot;
                 public sbyte MortalLevel;
@@ -65,7 +65,7 @@ namespace ToK.Common.Game.MarshalableTypes
             }
 
             [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
-            public struct BQuestInfo_Celestial
+            public struct MQuestInfo_Celestial
             {
                 public short ArchLevel;
                 public short CelestialLevel;
@@ -85,27 +85,27 @@ namespace ToK.Common.Game.MarshalableTypes
                 public unsafe fixed byte Empty[30];
             }
 
-            public BQuestInfo_Mortal Mortal;
-            public BQuestInfo_Arch Arch;
-            public BQuestInfo_Celestial Celestial;
+            public MQuestInfo_Mortal Mortal;
+            public MQuestInfo_Arch Arch;
+            public MQuestInfo_Celestial Celestial;
 
             public sbyte Circle;
             public unsafe fixed byte Empty[30];
         }
 
         [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
-        public struct BSavedCelestial
+        public struct MSavedCelestial
         {
             public int Class;
             public long Exp;
 
-            public SPosition StellarGemPosition;
+            public MPosition StellarGemPosition;
 
             public MScore BaseScore;
 
             public int LearnedSkill;
 
-            public BMobPointsLeft PointsLeft;
+            public MMobPointsLeft PointsLeft;
 
             public unsafe fixed byte SkillBar1[4];
             public unsafe fixed byte SkillBar2[16];
@@ -116,14 +116,14 @@ namespace ToK.Common.Game.MarshalableTypes
         }
 
         [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
-        public struct BDayLog
+        public struct MDayLog
         {
             public long Exp;
             public int YearDay;
         }
 
         [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
-        public struct BDonateInfo
+        public struct MDonateInfo
         {
             public long LastTime;
             public int Count;

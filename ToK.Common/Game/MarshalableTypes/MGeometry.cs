@@ -6,7 +6,7 @@ namespace ToK.Common.Game.MarshalableTypes
     /// Represents a 4-byte bidimensional position in the game.
     /// </summary>
     [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
-    public struct SPosition
+    public struct MPosition
     {
         public short X;
         public short Y;

@@ -11,14 +11,14 @@ namespace ToK.Common.Game.MarshalableTypes
         public short Index;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = GameBasics.MAXL_ITEM_EFFECT)]
-        public BItem_Effects[] Effects;
+        public MItem_Effects[] Effects;
     }
 
     /// <summary>
     /// The BItem internal structure representing the item effects.
     /// </summary>
     [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
-    public struct BItem_Effects
+    public struct MItem_Effects
     {
         public sbyte Code;
         public sbyte Value;
@@ -28,7 +28,7 @@ namespace ToK.Common.Game.MarshalableTypes
     /// Represents the mob's equips.
     /// </summary>
     [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
-    public struct BEquip
+    public struct MEquip
     {
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = GameBasics.MAXL_EQUIP)]
         public MItem[] Items;
@@ -38,7 +38,7 @@ namespace ToK.Common.Game.MarshalableTypes
     /// Represents the mob's inventory.
     /// </summary>
     [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
-    public struct BInventory
+    public struct MInventory
     {
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = GameBasics.MAXL_INVENTORY)]
         public MItem[] Items;

@@ -12,13 +12,13 @@ namespace ToK.Common.Game.MarshalableTypes
         public unsafe fixed short SPosY[GameBasics.MAXL_ACC_MOB];
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = GameBasics.MAXL_ACC_MOB)]
-        public BMobName[] Name;
+        public MMobName[] Name;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = GameBasics.MAXL_ACC_MOB)]
         public MScore[] Score;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = GameBasics.MAXL_ACC_MOB)]
-        public BEquip[] Equip;
+        public MEquip[] Equip;
 
         public unsafe fixed ushort Guild[GameBasics.MAXL_ACC_MOB];
 
