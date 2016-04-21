@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace ToK.Common
 {
-    public static class HMyMarshal
+    public static class MyMarshal
     {
         /// <summary>
         /// Marshals a raw buffer to a given marshalable struct.

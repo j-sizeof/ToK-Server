@@ -23,18 +23,8 @@ namespace ToK.GameServer.Game
 
         public CRecvPacket()
         {
-            Buffer = new byte[HNetworkBasics.MAXL_PACKET];
+            Buffer = new byte[NetworkBasics.MAXL_PACKET];
             Offset = 0;
-        }
-
-        /// <summary>
-        /// Get the next ushort from the buffer starting from the buffer's offset.
-        /// </summary>
-        /// <param name="adtOffset">Aditional offset.</param>
-        /// <param name="optOffset">Optional offset.</param>
-        public ushort GetUShort(int adtOffset = 0, int optOffset = -1)
-        {
-            return BitConverter.ToUInt16(this.Buffer, (optOffset + adtOffset >= 0 && optOffset + adtOffset < this.Buffer.Length) ? optOffset + adtOffset : this.Offset + adtOffset);
         }
     }
 }

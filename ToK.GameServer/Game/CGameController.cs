@@ -14,13 +14,13 @@ namespace ToK.GameServer.Game
         {
             short validIndex = 1;
 
-            for (; validIndex < HGameBasics.MAX_PLAYER; validIndex++)
+            for (; validIndex < GameBasics.MAX_PLAYER; validIndex++)
             {
                 if (PlayerState[validIndex] == EPlayerState.CLOSED)
                     break;
             }
 
-            if (validIndex >= HGameBasics.MAX_PLAYER)
+            if (validIndex >= GameBasics.MAX_PLAYER)
                 return false;
 
             player.Index = validIndex;
@@ -39,7 +39,7 @@ namespace ToK.GameServer.Game
 
                 PlayerState[player.Index] = EPlayerState.CLOSED;
 
-                CLog.Write($"The player {player.Index} was disconnected from the server.", ELogType.GAME_EVENT);
+                MyLog.Write($"The player {player.Index} was disconnected from the server.", ELogType.GAME_EVENT);
             }
         }
 
@@ -50,13 +50,13 @@ namespace ToK.GameServer.Game
             try
             {
                 // Switch for the packet opcode.
-                switch (player.RecvPacket.Header.Opcode)
+                switch (player.RecvPacket.ReadNextUShort(4))
                 {
-                    case BAccountLoginPacket.Opcode:
+                    case MAccountLoginPacket.Opcode:
                         err = ProcessAccountLogin(player);
                         break;
 
-                    case BPingPacket.Opcode:
+                    case MPingPacket.Opcode:
 
                         break;
 

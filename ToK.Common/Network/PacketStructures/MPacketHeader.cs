@@ -7,14 +7,14 @@ namespace ToK.Common.Network.PacketStructures
     /// </summary>
     public interface IGamePacket
     {
-        BPacketHeader Header { get; set; }
+        MPacketHeader Header { get; set; }
     }
 
     /// <summary>
     /// Header present in all the valid game packets.
     /// </summary>
-    [StructLayout(LayoutKind.Sequential, Pack = HProjectBasics.DEFAULT_PACK)]
-    public struct BPacketHeader
+    [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
+    public struct MPacketHeader
     {
         public ushort Size;
 

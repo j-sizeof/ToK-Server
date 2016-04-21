@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 using ToK.Common;
 using ToK.Common.Persistency;
 
-using static ToK.Common.Persistency.HPersistencyBasics;
+using static ToK.Common.Persistency.PersistencyBasics;
 
 namespace ToK.DataServer
 {
-    public static class HAccountCRUD
+    public static class AccountCRUD
     {
         public enum EErrorMsg
         {
@@ -25,7 +25,7 @@ namespace ToK.DataServer
             UNKNOWN,
         }
 
-        public static EErrorMsg TryRead(String accName, out BAccountFile? accFile)
+        public static EErrorMsg TryRead(String accName, out MAccountFile? accFile)
         {
             EErrorMsg err = EErrorMsg.NO_ERROR;
             accFile = null;
@@ -35,7 +35,7 @@ namespace ToK.DataServer
                 byte[] rawAcc = File.ReadAllBytes(String.Format("{0}/{1}/{2}.bin",
                     DB_ROOT_PATH, accName.Substring(0, 1).ToUpper(), accName.ToUpper()));
 
-                accFile = HMyMarshal.GetStructure<BAccountFile>(rawAcc);
+                accFile = MyMarshal.GetStructure<MAccountFile>(rawAcc);
             }
             catch(FileNotFoundException)
             {

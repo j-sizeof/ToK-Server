@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToK.Common.Persistency
 {
-    internal static class HPersistencyBasics
+    internal static class PersistencyBasics
     {
         internal const String DB_ROOT_PATH = "./DataBase";
     }
