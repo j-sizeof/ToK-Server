@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToK.Common.Game
 {
-    public static class HGameBasics
+    public static class GameBasics
     {
         #region Persistent Related
         public const int MAXL_ACC_MOB = 4;

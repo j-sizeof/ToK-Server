@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Runtime.InteropServices;
-using ToK.Common;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using ToK.Common.Network.PacketStructures;
+using ToK.Common.Utility;
 
 namespace ToK.Common.Network
 {
-    /// <summary>
-    /// Implements the packet enc/dec algorithms.
-    /// </summary>
-    public static class HPacketHelper
+    public static class PacketSecurity
     {
         /// <summary>
         /// The keys used in the enc/dec process.
@@ -36,29 +36,6 @@ namespace ToK.Common.Network
             0x21, 0x19
 	        #endregion
         };
-
-        private static Random rd;
-
-        static HPacketHelper()
-        {
-            rd = new Random();
-        }
-
-        public static T GetEmptyValid<T>(ushort opcode) where T : struct, IGamePacket
-        {
-            BPacketHeader validHeader = new BPacketHeader();
-            T packet = HMyMarshal.CreateEmpty<T>();
-
-            // Set the default values to the packet header.
-            validHeader.Size = (ushort)Marshal.SizeOf(packet);
-            validHeader.Opcode = opcode;
-            validHeader.Key = (byte)rd.Next(127);
-            validHeader.TimeStamp = (uint)Environment.TickCount;
-
-            packet.Header = validHeader;
-
-            return packet;
-        }
 
         /// <summary>
         /// Decrypts the packet data.
@@ -118,6 +95,11 @@ namespace ToK.Common.Network
             }
         }
 
+        public static bool Decrypt(CCompoundBuffer buffer)
+        {
+            return Decrypt(buffer.RawBuffer, buffer.Offset);
+        }
+
         /// <summary>
         /// Encrypts the packet data and initialize the packet header.
         /// </summary>
@@ -131,7 +113,7 @@ namespace ToK.Common.Network
                 byte checksumDec = 0;
                 byte keyResult = 0;
 
-                BPacketHeader* pHeader = (BPacketHeader*)pBufferPin;
+                MPacketHeader* pHeader = (MPacketHeader*)pBufferPin;
 
                 uint keyIncrement = (uint)(keyTable[pHeader->Key * 2] & 0xFF);
 
@@ -168,6 +150,11 @@ namespace ToK.Common.Network
                 //pBufferPin[offset + 3] = (byte)(checksumDec); // Fixed checksum
                 pHeader->CheckSum = (byte)(checksumEnc - checksumDec); // Old checksum
             }
+        }
+
+        public static void Encrypt(CCompoundBuffer buffer)
+        {
+            Encrypt(buffer.RawBuffer, buffer.Offset);
         }
     }
 }

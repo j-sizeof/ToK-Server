@@ -24,7 +24,7 @@ namespace ToK.GameServer.Game
 
         public CGameController()
         {
-            PlayerState = new EPlayerState[HGameBasics.MAX_PLAYER];
+            PlayerState = new EPlayerState[GameBasics.MAX_PLAYER];
         }
     }
 }

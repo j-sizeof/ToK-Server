@@ -2,8 +2,11 @@
 
 namespace ToK.Common.Game.MarshalableTypes
 {
-    [StructLayout(LayoutKind.Sequential, Pack = HProjectBasics.DEFAULT_PACK)]
-    public struct BAffect
+    /// <summary>
+    /// Represents the buffs in the game.
+    /// </summary>
+    [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
+    public struct MAffect
     {
         public byte Type;
         public byte Value;

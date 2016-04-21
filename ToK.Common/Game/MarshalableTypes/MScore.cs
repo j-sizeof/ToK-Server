@@ -5,8 +5,8 @@ namespace ToK.Common.Game.MarshalableTypes
     /// <summary>
     /// Represents a set of information regard to a mob's status.
     /// </summary>
-    [StructLayout(LayoutKind.Sequential, Pack = HProjectBasics.DEFAULT_PACK)]
-    public struct BScore
+    [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
+    public struct MScore
     {
         public int Level;
 
@@ -19,7 +19,7 @@ namespace ToK.Common.Game.MarshalableTypes
         public byte MovementSpeed
         {
             get { return m_MovementSpeed; }
-            set { m_MovementSpeed = (value > HGameBasics.MAX_MOB_SPEED) ? HGameBasics.MAX_MOB_SPEED : value; }
+            set { m_MovementSpeed = (value > GameBasics.MAX_MOB_SPEED) ? GameBasics.MAX_MOB_SPEED : value; }
         }
 
         public byte Direction; // The direction the mob is facing.

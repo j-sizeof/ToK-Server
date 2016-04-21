@@ -11,7 +11,10 @@ namespace ToK.Common.Game.MarshalableTypes
         HT = 3
     }
 
-    [StructLayout(LayoutKind.Sequential, Pack = HProjectBasics.DEFAULT_PACK)]
+    /// <summary>
+    /// Represents the points the mob have to distribute.
+    /// </summary>
+    [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
     public struct BMobPointsLeft
     {
         public ushort Status; // Amount of status points the mob have to distribute.
@@ -19,7 +22,10 @@ namespace ToK.Common.Game.MarshalableTypes
         public ushort Skill; // Amount of skill points the mob have to distribute.
     }
 
-    [StructLayout(LayoutKind.Sequential, Pack = HProjectBasics.DEFAULT_PACK)]
+    /// <summary>
+    /// The mob's name.
+    /// </summary>
+    [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
     public struct BMobName
     {
         public const int MAXL_NAME = 16;
@@ -28,7 +34,10 @@ namespace ToK.Common.Game.MarshalableTypes
         public String Value;
     }
 
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi, Pack = HProjectBasics.DEFAULT_PACK)]
+    /// <summary>
+    /// The basic mob structure. Contains the first structure create to represent the mob in the game.
+    /// </summary>
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi, Pack = ProjectBasics.DEFAULT_PACK)]
     public struct BMobCore
     {
         public BMobName Name;
@@ -45,8 +54,8 @@ namespace ToK.Common.Game.MarshalableTypes
 
         public SPosition StellarGemPosition;
 
-        public BScore BaseScore; // The score without outer interference.
-        public BScore FinalScore; // The score after all the calculations.
+        public MScore BaseScore; // The score without outer interference.
+        public MScore FinalScore; // The score after all the calculations.
 
         public BEquip Equip; // The items the mob is wearing.
 

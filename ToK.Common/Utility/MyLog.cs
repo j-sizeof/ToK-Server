@@ -20,7 +20,7 @@ namespace ToK.Common.Utility
     /// Events:
     ///     <see cref="DidLog"/>
     /// </summary>
-    public static class CLog
+    public static class MyLog
     {
         /// <summary>
         /// Fired when someone writes any log.

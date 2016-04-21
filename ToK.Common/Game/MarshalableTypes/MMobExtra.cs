@@ -9,8 +9,11 @@ namespace ToK.Common.Game.MarshalableTypes
         Completed = 2
     }
 
-    [StructLayout(LayoutKind.Sequential, Pack = HProjectBasics.DEFAULT_PACK)]
-    public struct BMobExtra
+    /// <summary>
+    /// The new mob structure. Contains the mob data from the version 7.48 to now.
+    /// </summary>
+    [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
+    public struct MMobExtra
     {
         public short ClassMaster;
         public sbyte Citizen;
@@ -36,10 +39,11 @@ namespace ToK.Common.Game.MarshalableTypes
 
         public unsafe fixed int Empty[9];
 
-        [StructLayout(LayoutKind.Sequential, Pack = HProjectBasics.DEFAULT_PACK)]
+        #region Sub Structures
+        [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
         public struct BQuestInfo
         {
-            [StructLayout(LayoutKind.Sequential, Pack = HProjectBasics.DEFAULT_PACK)]
+            [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
             public struct BQuestInfo_Mortal
             {
                 public sbyte Newbie; // 00_01_02_03_04  quest com quatro etapas
@@ -49,7 +53,7 @@ namespace ToK.Common.Game.MarshalableTypes
                 public unsafe fixed byte Empty[30];
             }
 
-            [StructLayout(LayoutKind.Sequential, Pack = HProjectBasics.DEFAULT_PACK)]
+            [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
             public struct BQuestInfo_Arch
             {
                 public sbyte MortalSlot;
@@ -60,7 +64,7 @@ namespace ToK.Common.Game.MarshalableTypes
                 public unsafe fixed byte Empty[30];
             }
 
-            [StructLayout(LayoutKind.Sequential, Pack = HProjectBasics.DEFAULT_PACK)]
+            [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
             public struct BQuestInfo_Celestial
             {
                 public short ArchLevel;
@@ -89,7 +93,7 @@ namespace ToK.Common.Game.MarshalableTypes
             public unsafe fixed byte Empty[30];
         }
 
-        [StructLayout(LayoutKind.Sequential, Pack = HProjectBasics.DEFAULT_PACK)]
+        [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
         public struct BSavedCelestial
         {
             public int Class;
@@ -97,7 +101,7 @@ namespace ToK.Common.Game.MarshalableTypes
 
             public SPosition StellarGemPosition;
 
-            public BScore BaseScore;
+            public MScore BaseScore;
 
             public int LearnedSkill;
 
@@ -111,18 +115,19 @@ namespace ToK.Common.Game.MarshalableTypes
             public unsafe fixed byte Empty[30];
         }
 
-        [StructLayout(LayoutKind.Sequential, Pack = HProjectBasics.DEFAULT_PACK)]
+        [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
         public struct BDayLog
         {
             public long Exp;
             public int YearDay;
         }
 
-        [StructLayout(LayoutKind.Sequential, Pack = HProjectBasics.DEFAULT_PACK)]
+        [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
         public struct BDonateInfo
         {
             public long LastTime;
             public int Count;
         }
+        #endregion
     }
 }

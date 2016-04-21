@@ -5,7 +5,7 @@ using ToK.Common.Persistency;
 
 namespace ToK.Common.Persistency
 {
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi, Pack = HProjectBasics.DEFAULT_PACK)]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi, Pack = ProjectBasics.DEFAULT_PACK)]
     public struct BLoginInfo
     {
         public const int MAXL_ACCNAME = 16;
@@ -17,8 +17,8 @@ namespace ToK.Common.Persistency
         public String Password;
     }
 
-    [StructLayout(LayoutKind.Sequential, Pack = HProjectBasics.DEFAULT_PACK)]
-    public struct BAccountInfo
+    [StructLayout(LayoutKind.Sequential, Pack = ProjectBasics.DEFAULT_PACK)]
+    public struct MAccountInfo
     {
         public const int MAXL_REALNAME = 24;
         public const int MAXL_EMAIL = 48;

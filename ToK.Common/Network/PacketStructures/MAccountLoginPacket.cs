@@ -7,12 +7,12 @@ namespace ToK.Common.Network.PacketStructures
     /// <summary>
     /// Packet sent by game client requesting login.
     /// </summary>
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi, Pack = HProjectBasics.DEFAULT_PACK)]
-    public struct BAccountLoginPacket : IGamePacket
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi, Pack = ProjectBasics.DEFAULT_PACK)]
+    public struct MAccountLoginPacket : IGamePacket
     {
         public const ushort Opcode = 0x20D;
-
-        public BPacketHeader Header { get; set; }
+        
+        public MPacketHeader Header { get; set; }
         
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = BLoginInfo.MAXL_PSW)]
         public String Password;
