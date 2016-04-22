@@ -1,10 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Threading.Tasks;
 using ToK.Common;
-using ToK.Common.Persistency;
-
-using static ToK.Common.Persistency.PersistencyBasics;
 
 namespace ToK.DataServer
 {
@@ -33,7 +29,7 @@ namespace ToK.DataServer
             try
             {
                 byte[] rawAcc = File.ReadAllBytes(String.Format("{0}/{1}/{2}.bin",
-                    DB_ROOT_PATH, accName.Substring(0, 1).ToUpper(), accName.ToUpper()));
+                    PersistencyBasics.DB_ROOT_PATH, accName.Substring(0, 1).ToUpper(), accName.ToUpper()));
 
                 accFile = MyMarshal.GetStructure<MAccountFile>(rawAcc);
             }

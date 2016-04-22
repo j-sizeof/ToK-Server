@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ToK.Common.Persistency
+namespace ToK.DataServer
 {
     internal static class PersistencyBasics
     {
