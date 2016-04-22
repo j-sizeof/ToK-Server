@@ -14,7 +14,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToK.HandlePlayerRequest", "ToK.HandlePlayerRequest\ToK.HandlePlayerRequest.csproj", "{864CA732-14BA-4DB0-8562-639F1425517E}"
 EndProject
 Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	GlobalSection(SolutionConfigurationPlatforms) = preSolutions----------------------
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
